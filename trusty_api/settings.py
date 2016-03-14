@@ -79,12 +79,21 @@ WSGI_APPLICATION = 'trusty_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'trusty_db',
-        'USER': 'root',
-        'PASSWORD': '',
+        'NAME': 'explore_db',
+        'USER': 'main',
+        'PASSWORD': 'kp0150',
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': ''
     }
+
+    #     'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'trusty_db',
+    #     'USER': 'root',
+    #     'PASSWORD': '',
+    #     'HOST': 'localhost',
+    #     'PORT': ''
+    # }
 }
 
 

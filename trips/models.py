@@ -5,19 +5,28 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
+# Todo -
+# Getting an error when adding a new overview
+# Error about user_id
+# Might need to drop the database again
+# create new superuser - with kelsey & kp0150 credentials
+# Re-login
+
 
 class User(models.Model):
     username = models.CharField(max_length=200)
-    # overviews = models.PrimaryKeyRelatedField()
+
+    def __str__(self):
+        return self.username
 
 
 class Overview(models.Model):
-    title = models.CharField(max_length=200, default='null')
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
     length = models.IntegerField(default=0)
-    season = models.CharField(max_length=200, default='null')
-    activity_type = models.CharField(max_length=200, default='null')
+    season = models.CharField(max_length=200)
+    activity_type = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published', blank=True)
-    # owner = models.ForeignKey('auth.User', related_name='overviews')
 
     # Purpose: output text in python console, rather than the unhelpful <Object object> output
     def __str__(self):
@@ -28,7 +37,7 @@ class Overview(models.Model):
 
 
 class Segment(models.Model):
-    overview_id = models.ForeignKey(Overview, on_delete=models.CASCADE)
+    overview = models.ForeignKey(Overview, on_delete=models.CASCADE)
     province = models.CharField(max_length=200, default='null')
     region = models.CharField(max_length=200, default='null')
     country = models.CharField(max_length=200, default='null')

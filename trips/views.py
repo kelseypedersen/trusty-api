@@ -1,20 +1,20 @@
 from rest_framework import generics
 
-from trips.models import User, Overview, Segment
-from trips.serializers import UserSerializer, OverviewSerializer, SegmentSerializer
+from trips.models import Overview, Segment
+from trips.serializers import OverviewSerializer, SegmentSerializer
 from rest_framework import permissions
 
 
-class UserList(generics.ListCreateAPIView):
-
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+# class UserList(generics.ListCreateAPIView):
+#
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+#
+#
+# class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+#
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
 
 
 class OverviewList(generics.ListCreateAPIView):
